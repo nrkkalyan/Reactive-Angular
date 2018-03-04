@@ -1,29 +1,28 @@
+import { TemplateRef, ViewContainerRef, ComponentFactoryResolver, ComponentRef } from "@angular/core";
+import { BaseComponent } from "./base/base.component";
+
 export abstract class OnBase {
-    // public signature: string;
-    // public title: string;
-    public defination: string;
-    private _signature: string;
-    private _title: string;
-    constructor() {
 
-    }
+    protected defination: string;
+    protected signature: string;
+    protected title: string;
 
-    public get signature(): string {
-        return this._signature;
-    }
-    public set signature(v: string) {
-        this._signature = v;
-    }
+    public componentRef: ComponentRef<{}>;
 
-    public get title(): string {
-        return this._title;
-    }
-    public set title(v: string) {
-        this._title = v;
+    constructor(public target: ViewContainerRef, public componentFactoryResolver: ComponentFactoryResolver) { }
+
+
+    public CreateComponent(exmTemplate: TemplateRef<any>, docTemplate: TemplateRef<any>): void {
+        const factory = this.componentFactoryResolver.resolveComponentFactory(BaseComponent);
+        this.componentRef = this.target.createComponent(factory, 0);
+        const instance: BaseComponent = this.componentRef.instance as BaseComponent;
+        instance.title = this.title;
+        instance.signature = this.signature;
+        instance.defination = this.defination
+        instance.template = exmTemplate;
+        instance.doctemplate = docTemplate;
     }
 
-    public base(): string {
-        return "Hello";
-    }
+
 
 }
