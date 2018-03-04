@@ -1,0 +1,15 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-sm-12 col-md-12">
+      <div class="card card-accent-info">
+        <div class="card-header">
+            <b>Creation Operators</b>
+            <span (click)="toggle=!toggle" class="fa fa-chevron-circle-down float-right" [ngClass]="{'fa-chevron-circle-down': toggle, 'fa-chevron-circle-up':!toggle}"></span>
+        </div>
+        <div class="card-body" *ngIf="toggle">
+            <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

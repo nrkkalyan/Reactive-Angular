@@ -1,0 +1,42 @@
+<div class="sidebar">
+  <nav class="sidebar-nav">
+    <ul class="nav">
+      <li class="nav-item">
+        <a routerlinkactive="active" [routerLink]="['/cards']" class="nav-link active">
+          <i class="icon-speedometer"></i>
+          Card
+          <span class="badge badge-info">NEW</span>
+        </a>
+      </li>
+      <li class="nav-divider"></li>
+      <ng-template ngFor let-navitem [ngForOf]="menu">
+        <li *ngIf="!navitem.child; else childtpl" class="nav-item">
+          <a [routerLink]="navitem.path"  class="nav-link">
+            <i class="{{navitem.icon}}"></i>
+            {{navitem.name}}
+          </a>
+          </li>
+        <ng-template #childtpl>
+           <li class="nav-item nav-dropdown" appNavDropdown> <!--appNavDropdown -->
+            <a [routerLink]="navitem.path"  class="nav-link nav-dropdown-toggle" appNavDropdownToggle> <!--appNavDropdownToggle-->
+              <i class="{{navitem.icon}}"></i>
+              {{navitem.name}}
+            </a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item" *ngFor="let c of navitem.child">
+                    <a [routerLink]="c.path" class="nav-link">
+                      <i class="{{c.icon}}"></i>
+                      {{c.name}}
+                    </a>
+                  </li>
+            </ul>
+          </li>
+        </ng-template>
+
+        <li class="nav-divider"></li>
+      </ng-template>
+    </ul>
+  </nav>
+  <button class="sidebar-minimizer" type="button" appSidebarMinimizer appBrandMinimizer></button>
+</div>
+
