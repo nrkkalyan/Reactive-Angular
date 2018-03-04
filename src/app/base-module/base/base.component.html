@@ -1,11 +1,16 @@
-<!-- <h5>
+<h5>
   <span>Operator: </span>{{title}}</h5>
 <hr>
 <div class="row">
   <div class="col-md-12 mb-12">
     <tabset>
       <tab heading="Example">
-
+          <ng-content></ng-content>
+          <ng-container *ngIf="template"
+            [ngTemplateOutlet]="template"
+            [ngTemplateOutletContext]="{ person: dataContext }"
+          >
+          </ng-container>
       </tab>
       <tab heading="Documentation">
         <div class="well">Signature:
@@ -16,14 +21,12 @@
           <br>
           <span>{{defination}}</span>
         </div>
+        <ng-container *ngIf="doctemplate"
+            [ngTemplateOutlet]="doctemplate"
+            [ngTemplateOutletContext]="{ person: dataContext }"
+          >
+          </ng-container>
       </tab>
     </tabset>
   </div>
-</div> -->
-<ng-template #estimateTemplate >
-    <div> Approximately lessons ...</div>
-</ng-template>
-
-<ng-template #estimateTemplate1 >
-    <div> Approximately lessons1 ...</div>
-</ng-template>
+</div>

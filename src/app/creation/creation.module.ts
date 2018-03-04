@@ -22,11 +22,13 @@ import { RangeComponent } from './range/range.component';
 import { ThrowComponent } from './throw/throw.component';
 import { TimerComponent } from './timer/timer.component';
 
-import { TabsModule, TabsetComponent, TabHeadingDirective, TabDirective } from "ngx-bootstrap";
+import { TabsModule } from "ngx-bootstrap";
+import { BaseComponent } from "../base-module/base/base.component";
+import { BaseModule } from "../base-module/base.module";
 
 
 @NgModule({
-    imports: [CommonModule, RouterModule, TabsModule.forRoot(), creationRouting],
+    imports: [CommonModule, RouterModule, TabsModule.forRoot(), BaseModule, creationRouting],
     declarations: [
         CreationComponent,
         BindCallbackComponent,
@@ -49,7 +51,7 @@ import { TabsModule, TabsetComponent, TabHeadingDirective, TabDirective } from "
         TimerComponent
     ],
     schemas: [NO_ERRORS_SCHEMA],
-    entryComponents: [TabsetComponent]
+    entryComponents: [BaseComponent]
 })
 export class CreationModule {
     static forRoot(): ModuleWithProviders {

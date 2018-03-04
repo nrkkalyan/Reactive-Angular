@@ -24,6 +24,7 @@ import { MultiCastingModule } from "./multi-casting/multi-casting.module";
 import { ErrorHandlingModule } from "./error-handling/error-handling.module";
 import { TransformationModule } from "./transformation/transformation.module";
 import { UtilityModule } from "./utility/utility.module";
+import { BaseModule } from "./base-module/base.module";
 
 @NgModule({
   imports: [
@@ -40,6 +41,7 @@ import { UtilityModule } from "./utility/utility.module";
     UtilityModule,
     ConditionalBooleanModule,
     MathematicAggregateModule,
+    BaseModule,
     routing
   ],
   declarations: [AppComponent, CardsComponent],
