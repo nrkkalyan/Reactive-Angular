@@ -6,10 +6,13 @@ export abstract class OnBase {
     protected defination: string;
     protected signature: string;
     protected title: string;
+    protected table: Array<IBaseTable>;
 
     public componentRef: ComponentRef<{}>;
 
-    constructor(public target: ViewContainerRef, public componentFactoryResolver: ComponentFactoryResolver) { }
+    constructor(public target: ViewContainerRef, public componentFactoryResolver: ComponentFactoryResolver) {
+        this.table = new Array<IBaseTable>();
+    }
 
 
     public CreateComponent(exmTemplate: TemplateRef<any>, docTemplate: TemplateRef<any>): void {
@@ -21,8 +24,14 @@ export abstract class OnBase {
         instance.defination = this.defination
         instance.template = exmTemplate;
         instance.doctemplate = docTemplate;
+        instance.table = this.table;
     }
+}
 
 
-
+export interface IBaseTable {
+    Name: string;
+    Type: string;
+    Attribute: string;
+    Description: string;
 }

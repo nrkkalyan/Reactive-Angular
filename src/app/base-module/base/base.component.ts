@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, TemplateRef } from '@angular/core';
+import { IBaseTable } from '../base.abstract';
 
 @Component({
   selector: 'app-base',
@@ -11,6 +12,8 @@ export class BaseComponent implements OnInit {
   @Input() title: string;
   @Input() template: TemplateRef<any>;
   @Input() doctemplate: TemplateRef<any>;
+  @Input() table: Array<IBaseTable>;
+  Object = Object;
   constructor() { }
 
   ngOnInit() {

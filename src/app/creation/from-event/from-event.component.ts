@@ -18,6 +18,14 @@ export class FromEventComponent extends OnBase implements OnInit {
     // tslint:disable-next-line:max-line-length
     this.signature = "public static fromEvent(target: EventTargetLike, eventName: string, options: EventListenerOptions, selector: SelectorMethodSignature<T>): Observable<T>";
     this.defination = "Creates an Observable from DOM events, or Node.js EventEmitter events or others.";
+    this.table = [
+      // tslint:disable-next-line:max-line-length
+      { Name: 'target', Type: 'EventTargetLike', Attribute: '', Description: 'The DOM EventTarget, Node.js EventEmitter, JQuery-like event target, NodeList or HTMLCollection to attach the event handler to.' },
+      { Name: 'eventName', Type: 'string', Attribute: '', Description: 'The event name of interest, being emitted by the target.' },
+      { Name: 'options', Type: 'EventListenerOptions', Attribute: 'optional', Description: 'Options to pass through to addEventListener' },
+      // tslint:disable-next-line:max-line-length
+      { Name: 'selector', Type: 'SelectorMethodSignature<T>', Attribute: 'optional', Description: 'An optional function to post-process results. It takes the arguments from the event handler and should return a single value.' }
+    ];
   }
 
   ngOnInit() {
